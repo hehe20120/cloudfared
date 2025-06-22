@@ -25,4 +25,3 @@ jobs:
           git fetch upstream
           git merge upstream/main --allow-unrelated-histories || echo "Nothing to merge"
           git push origin main
-          
