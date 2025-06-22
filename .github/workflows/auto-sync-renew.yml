@@ -4,7 +4,12 @@ name: Auto Sync GitHub Project
 on:
   schedule:
     - cron: '0 * * * *'  # 每小时执行一次
-
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'World'  
 jobs:
   sync:
     runs-on: ubuntu-latest
