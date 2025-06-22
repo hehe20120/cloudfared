@@ -1,9 +1,10 @@
 ---
 name: Auto Sync GitHub Project
 
-#on:
-#  schedule:
-#    - cron: '0 * * * *'  # 每小时执行一次
+on:
+  schedule:
+    - cron: '0 * * * *'  # 每小时执行一次
+
 jobs:
   sync:
     runs-on: ubuntu-latest
