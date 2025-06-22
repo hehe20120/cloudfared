@@ -9,7 +9,7 @@ on:
       name:
         description: 'Person to greet'
         required: true
-        default: 'World'  
+        default: 'World' 
 jobs:
   sync:
     runs-on: ubuntu-latest
