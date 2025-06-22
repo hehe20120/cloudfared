@@ -1,0 +1,27 @@
+---
+name: Auto Sync GitHub Project
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # 每小时执行一次
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # 防止 git push 出错
+          fetch-depth: 0  # 拉取完整提交历史
+
+      - name: Set up Git
+        run: |
+          git config user.name "hehe20120"
+          git config user.email "422166798@qq.com"
+
+      - name: Add upstream and fetch
+        run: |
+          git remote add upstream https://github.com/brenner-tobias/ha-addons.git
+          git fetch upstream
+          git merge upstream/main --allow-unrelated-histories || echo "Nothing to merge"
+          git push origin main
